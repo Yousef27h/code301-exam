@@ -4,7 +4,7 @@ const CharactersModel = require('../models/crudModel');
 
 // create a function to add new favorite data to our DB
 const createFav = async (req, res) => {
-  const { name, gender, image, psiPowers } = req.body;
+  const { name, gender, img, psiPowers } = req.body;
   CharactersModel.find({ name: name }, (error, docs) => {
     // checking whether the data already exist or not
     if (docs.length > 0) {
@@ -14,7 +14,7 @@ const createFav = async (req, res) => {
       const newFavChar = new CharactersModel({
         name: name,
         gender: gender,
-        image: image,
+        image: img,
         psiPowers: psiPowers,
       });
       // save new document in my DB
